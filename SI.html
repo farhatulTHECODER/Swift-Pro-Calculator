@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Simple Interest CalculatorCalculator</title><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+        <script>
+            function calculate()
+            {
+                p = document.getElementById("p").value;
+                n = document.getElementById("n").value;
+                r = document.getElementById("r").value;
+                result = document.getElementById("result");
+                
+                result.innerHTML = "The Interest is =  " + (p*n*r/100);
+            }
+            function refreshPage()
+            {
+              location.reload();
+            }
+        </script>
+
+<style>
+
+*{
+    font-family: 'Roboto Mono', monospace;
+
+}
+#p{
+  border: none;
+  height: 30px;
+  width: 195px;
+  border-radius: 30px;
+}
+#r{ 
+  border: none;
+  height: 30px;
+  width: 195px;
+  border-radius: 30px;
+}
+#n{  
+  border: none;
+  height: 30px;
+  width: 195px;
+  border-radius: 30px;
+}
+#c-btn{
+  border: none;
+  background-color: lightgreen;
+  height: 30px;
+  width: 100px;
+  border-radius: 15px;
+}
+</style>
+
+   
+    </head>
+    <body bgcolor="skuyblue">
+
+     <a href="index.html"><img src="backImg.png" alt="" width="20%" height="20%" align="left"></a>   
+
+     <img src="refreshButton.png" alt="" align="right" width="25%" height="25%" onclick="refreshPage()">
+
+        <br><br><br><br>
+        
+        Amount: <input id="p"><br/><br>
+        Rate: <input id="r"><br/><br>
+        No.of Years: <input id="n"><br/>
+<br>
+        <button onclick="calculate()" id="c-btn">Calculate</button>
+
+        <p id="result"></p>
+
+
+</body>
+
+
+
+
+
+</html>
+
+  <!--   <style>
+            body {
+              position: absolute;
+      
+              margin: 0px;
+              top: 50%;
+              left: 50%;
+      
+              background-color: #222526;
+            }
+      
+            @media (orientation: landscape) {
+              body {
+                width: 1280px;
+                height: 720px;
+              }
+            }
+      
+            @media (orientation: portrait) {
+              body {
+                width: 720px;
+                height: 1280px;
+              }
+            }
+      
+            #background {
+              display: none;
+            }
+          </style>
+
+<script>
+    'use strict';
+
+    // requestAnim shim layer by Paul Irish
+    window.requestAnimFrame = (function(){
+      return  window.requestAnimationFrame       || 
+              window.webkitRequestAnimationFrame || 
+              window.mozRequestAnimationFrame    || 
+              window.oRequestAnimationFrame      || 
+              window.msRequestAnimationFrame     || 
+              function(/* function */ callback, /* DOMElement */ element){
+                  window.setTimeout(callback, 1000 / 60);
+              };
+    })();
+
+    var startingOrientation =
+      (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait';
+
+    var loadOrientationSpecificStylesheet = function(orientation) {
+      var linkElement = document.createElement('link');
+
+      linkElement = document.createElement('link');
+      linkElement.setAttribute('rel', 'stylesheet');
+
+      linkElement.setAttribute('media', 'all and (orientation:' + orientation + ')');
+      linkElement.setAttribute('href', 'css/calc_' + orientation + '.css');
+
+      document.head.appendChild(linkElement);
+    };
+
+    // load stylesheets immediately
+    (function() {
+      var linkElement = document.createElement('link');
+      linkElement.setAttribute('rel', 'stylesheet');
+      linkElement.setAttribute('href', 'css/calc_common.css');
+      document.head.appendChild(linkElement);
+
+      loadOrientationSpecificStylesheet(startingOrientation);
+    })();
+
+    var doMaximiseBody = function() {
+      // apply scaling transform
+      var docWidth = document.documentElement.clientWidth;
+      var docHeight = document.documentElement.clientHeight;
+      var body = document.body;
+      var bodyWidth = body.clientWidth;
+      var bodyHeight = body.clientHeight;
+
+      var transform =
+        "translate(-50%, -50%) scale(" +
+            docWidth / bodyWidth +
+            ", " +
+            docHeight / bodyHeight +
+          ")";
+      body.style['-webkit-transform'] = transform;
+      body.style.transform = transform;
+    };
+
+    doMaximiseBody();
+
+    window.addEventListener('pageshow', function() {
+      window.requestAnimFrame(function() {
+        var scripts = [
+          'lib/es6-promise/es6-promise.min.js',
+          'lib/fetch/fetch.js',
+          'js/calc.js'
+        ];
+
+        scripts.forEach(function(script) {
+          var scriptElement = document.createElement('script');
+          scriptElement.setAttribute('src',script);
+
+          document.head.appendChild(scriptElement);
+        });
+
+        // load stylesheet for other orientation
+        var otherOrientation = (startingOrientation === 'landscape') ? 'portrait' : 'landscape';
+        loadOrientationSpecificStylesheet(otherOrientation);
+      });
+    }, false);
+  </script>-->
+
+    <!--  <platinum-sw-register auto-register clients-claim skip-waiting>
+            <platinum-sw-cache default-cache-strategy="fastest"></platinum-sw-cache>
+          </platinum-sw-register>
+          <div id="background">
+            <div id="calculationpane">
+              <div id="LCD_Upper">
+                <div id="wrapper">
+                  <div id="scroller">
+                    <div class="scroll-pane" id="calculationhistory"></div>
+                  </div>
+                </div>
+                <div id="historyverticalline"></div>
+                <button disabled class="historybuttonclose" id="closehistorybutton"></button>
+              </div>
+              <div id="LCD_Lower">
+                <div id="upperpane">
+                  <div id="upperclosebutton">
+                    <button disabled class="buttonclose" id="buttonclosecurrentformula"></button>
+                  </div>
+                  <div id="currentformula"></div>
+                </div>
+                <div id="horizontaldivider"></div>
+                <div id="lowerpane">
+                  <div id="lowerclosebutton">
+                    <button disabled class="buttonclose" id="buttonclosemainentry"></button>
+                  </div>
+                  <div id="mainentry"></div>
+                  <button disabled class="historybutton" id="openhistorybutton"></button>
+                </div>
+              </div>
+              <div id="keyboard">
+                <div id="keyboardleft">
+                  <div id="leftmostpane">
+                    <div id="statetransition">
+                      <div id="degradswitch" class="switchleftactive">
+                         <div class="buttontogglebackgroundB" id="buttondeg">DEG</div>
+                         <div class="buttontogglebackgroundA" id="buttonrad">RAD</div>
+                      </div>
+                       <div id="traghypswitch" class="switchleftactive">
+                         <div class="buttontogglebackgroundB" id="buttontrig">TRIG</div>
+                         <div class="buttontogglebackgroundA" id="buttonhyp">HYP</div>
+                      </div>
+                    </div>
+                    <div id="trigonometric">
+                      <button disabled class="buttonblackshort" id="buttonsin">sin</button>
+                      <button disabled class="buttonblackshort" id="buttoncos">cos</button>
+                      <button disabled class="buttonblackshort" id="buttontan">tan</button>
+                      <button disabled class="buttonblackshort" id="buttonarcsin">sin<sup>-1</sup></button>
+                      <button disabled class="buttonblackshort" id="buttonarccos">cos<sup>-1</sup></button>
+                      <button disabled class="buttonblackshort" id="buttonarctan">tan<sup>-1</sup></button>
+                    </div>
+                    <div id="hyperbolic">
+                      <button disabled class="buttonblackshort" id="buttonsinh">sinh</button>
+                      <button disabled class="buttonblackshort" id="buttoncosh">cosh</button>
+                      <button disabled class="buttonblackshort" id="buttontanh">tanh</button>
+                      <button disabled class="buttonblackshort" id="buttonasinh">sinh<sup>-1</sup></button>
+                      <button disabled class="buttonblackshort" id="buttonacosh">cosh<sup>-1</sup></button>
+                      <button disabled class="buttonblackshort" id="buttonatanh">tanh<sup>-1</sup></button>
+                    </div>
+                    <div id="expandlog">
+                      <button disabled class="buttonblackshort" id="buttonlog">log</button>
+                      <button disabled class="buttonblackshort" id="buttonlog2">log<sub>2</sub></button>
+                      <button disabled class="buttonblackshort" id="buttonln">ln</button>
+                      <button disabled class="buttonblackshort" id="button10x" data-operator="10<sup>^</sup>">10<sup>x</sup></button>
+                      <button disabled class="buttonblackshort" id="button2x" data-operator="2<sup>^</sup>">2<sup>x</sup></button>
+                      <button disabled class="buttonblackshort" id="buttonex" data-operator="e<sup>^</sup>">e<sup>x</sup></button>
+                    </div>
+                  </div>
+                  <div id="centerleftpane">
+                    <div id="powerandroot">
+                      <button disabled class="buttonyellow" id="buttonsquare" data-operator="<sup>2</sup>">x<sup>2</sup></button>
+                      <button disabled class="buttonyellow" id="buttonsquareroot">&#8730;</button>
+                    </div>
+                    <div id="nthpowerandnthroot">
+                      <button disabled class="buttonyellow" id="buttonnthpower" data-operator="<sup>^</sup>">y<sup>x</sup></button>
+                      <button disabled class="buttonyellow" id="buttonnthroot" data-operator="<sup>n</sup>&#8730;"><sup>x</sup>&#8730;y</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="keyboardsplitter"></div>
+                <div id="keyboardright">
+                  <div id="centerrightpane">
+                    <button disabled class="buttonpurple" id="buttonmemorylist">
+                      <span class="buttonlefttext">M</span>
+                      <img class="buttonrighticon" src="images/ico_mem_list.png"/>
+                    </button>
+                    <button disabled class="buttonpurple" id="buttonmemorize">
+                      <img class="buttonlefticon" src="images/ico_arrow_black.png"/>
+                      <span class="buttonrighttext" id="buttonmemorizetext"></span>
+                    </button>
+                    <button disabled class="buttonblack" id="buttonleftparenthesis">(</button>
+                    <button disabled class="buttonblack" id="buttonrightparenthesis">)</button>
+                    <button disabled class="buttonblack" id="buttonfactorial" data-operator="!">x!</button>
+                    <button disabled class="buttonblack" id="buttoninverse" data-operator="<sup>-1</sup>">x<sup>-1</sup></button>
+                    <button disabled class="buttonblack" id="buttonpi">&pi;</button>
+                    <button disabled class="buttonblack" id="buttonpercentage">%</button>
+                  </div>
+                  <div id="rightpane">
+                    <button disabled class="buttonred" id="buttonclear">C</button>
+                    <button disabled class="buttonblue" id="buttondivide">&#247;</button>
+                    <button disabled class="buttonblue" id="buttonmultiply">&#215;</button>
+                    <button disabled class="buttonwhite" id="button7">7</button>
+                    <button disabled class="buttonwhite" id="button8">8</button>
+                    <button disabled class="buttonwhite" id="button9">9</button>
+                    <button disabled class="buttonwhite" id="button4">4</button>
+                    <button disabled class="buttonwhite" id="button5">5</button>
+                    <button disabled class="buttonwhite" id="button6">6</button>
+                    <button disabled class="buttonwhite" id="button1">1</button>
+                    <button disabled class="buttonwhite" id="button2">2</button>
+                    <button disabled class="buttonwhite" id="button3">3</button>
+                    <button disabled class="buttonwhite" id="button0">0</button>
+                    <button disabled class="buttonblue" id="buttondot">.</button>
+                    <button disabled class="buttonblue" id="buttonplusminus">+/&ndash;</button>
+                  </div>
+                  <div id="rightmostpane">
+                    <button disabled class="buttonred" id="buttondelete"><img class="buttondeleteicon" src="images/ico_back.png" alt="backspace" height="26" width="40"/></button>
+                    <button disabled class="buttonblue" id="buttonsubtract" data-operator="-">&ndash;</button>
+                    <button disabled class="buttonblue" id="buttonadd">+</button>
+                    <button disabled class="buttonblueequal" id="buttonequal">=</button>
+                  </div>
+                </div>
+              </div>
+              <div id="licensebtnl"> i </div>
+              <div id="home_help" class="helplaunch"> ? </div>
+            </div>
+          </div>-->
+        
+
+      <!-- <style type="text/css">
+            * {
+            padding: 0;
+            margin: 5px;
+            text-align: center;
+            }
+            body {
+            background-color:#ff9933;
+            }
+            .calculator {
+            width: 350px;
+            height: 320px;
+            background-color: #c0c0c0;
+            box-shadow: 0px 0px 0px 10px #666;
+            border: 5px solid black;
+            border-radius: 10px;
+            }
+            #display {
+            width: 320px;
+            height: 40px;
+            text-align: right;
+            background-color: black;
+            border: 3px solid white;
+            font-size: 18px;
+            left: 2px;
+            top: 2px;
+            color: #7fff00;
+            }
+            .btnTop{
+            color: white;
+            background-color: #6f6f6f;
+            font-size: 14px;
+            margin: auto;
+            width: 50px;
+            height: 25px;
+            }
+            .btnNum {
+            color: white;
+            background-color: black;
+            font-size: 14px;
+            margin: auto;
+            width: 50px;
+            height: 25px;
+            }
+            .btnMath {
+            color: white;
+            background-color: #ff4561;
+            font-size: 14px;
+            margin: auto;
+            width: 50px;
+            height: 25px;
+            }
+            .btnOpps {
+            color: white;
+            background-color: #ff9933;
+            font-size: 14px;
+            margin: auto;
+            width: 50px;
+            height: 25px;
+            }
+            </style>
+           
+            <form name="sci-calc">
+            <table class="calculator" cellspacing="0" cellpadding="1">
+            <tr>
+            <td colspan="5"><input id="display" name="display" value="0" size="28" maxlength="25"></td>
+            </tr>
+            <tr>
+            <td><input type="button" class="btnTop" name="btnTop" value="C" onclick="this.form.display.value= 0 "></td>
+            <td><input type="button" class="btnTop" name="btnTop" value="<--" onclick="deleteChar(this.form.display)"></td>
+            <td><input type="button" class="btnTop" name="btnTop" value="=" onclick="if(checkNum(this.form.display.value)) { compute(this.form) }"></td>
+            <td><input type="button" class="btnOpps" name="btnOpps" value="&#960;" onclick="addChar(this.form.display,'3.14159265359')"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="%" onclick=" percent(this.form.display)"></td>
+            </tr>
+            <tr>
+            <td><input type="button" class="btnNum" name="btnNum" value="7" onclick="addChar(this.form.display, '7')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="8" onclick="addChar(this.form.display, '8')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="9" onclick="addChar(this.form.display, '9')"></td>
+            <td><input type="button" class="btnOpps" name="btnOpps" value="x&#94;" onclick="if(checkNum(this.form.display.value)) { exp(this.form) }"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="/" onclick="addChar(this.form.display, '/')"></td>
+            <tr>
+            <td><input type="button" class="btnNum" name="btnNum" value="4" onclick="addChar(this.form.display, '4')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="5" onclick="addChar(this.form.display, '5')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="6" onclick="addChar(this.form.display, '6')"></td>
+            <td><input type="button" class="btnOpps" name="btnOpps" value="ln" onclick="if(checkNum(this.form.display.value)) { ln(this.form) }"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="*" onclick="addChar(this.form.display, '*')"></td>
+            </tr>
+            <tr>
+            <td><input type="button" class="btnNum" name="btnNum" value="1" onclick="addChar(this.form.display, '1')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="2" onclick="addChar(this.form.display, '2')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="3" onclick="addChar(this.form.display, '3')"></td>
+            <td><input type="button" class="btnOpps" name="btnOpps" value="&radic;" onclick="if(checkNum(this.form.display.value)) { sqrt(this.form) }"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="-" onclick="addChar(this.form.display, '-')"></td>
+            </tr>
+            <tr>
+            <td><input type="button" class="btnMath" name="btnMath" value="&#177" onclick="changeSign(this.form.display)"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="0" onclick="addChar(this.form.display, '0')"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="&#46;" onclick="addChar(this.form.display, '&#46;')"></td>
+            <td><input type="button" class="btnOpps" name="btnOpps" value="x&#50;" onclick="if(checkNum(this.form.display.value)) { square(this.form) }"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="+" onclick="addChar(this.form.display, '+')"></td>
+            </tr>
+            <tr>
+            <td><input type="button" class="btnMath" name="btnMath" value="(" onclick="addChar(this.form.display, '(')"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value=")" onclick="addChar(this.form.display,')')"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="cos" onclick="if(checkNum(this.form.display.value)) { cos(this.form) }"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="sin" onclick="if(checkNum(this.form.display.value)) { sin(this.form) }"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="tan" onclick="if(checkNum(this.form.display.value)) { tan(this.form) }"></td>
+            </tr>
+            </tabel>
+            </form>
+            <script>
+            function addChar(input, character) {
+            if(input.value == null || input.value == "0")
+            input.value = character
+            else
+            input.value += character
+            }
+            function cos(form) {
+            form.display.value = Math.cos(form.display.value);
+            }
+            function sin(form) {
+            form.display.value = Math.sin(form.display.value);
+            }
+            function tan(form) {
+            form.display.value = Math.tan(form.display.value);
+            }
+            function sqrt(form) {
+            form.display.value = Math.sqrt(form.display.value);
+            }
+            function ln(form) {
+            form.display.value = Math.log(form.display.value);
+            }
+            function exp(form) {
+            form.display.value = Math.exp(form.display.value);
+            }
+            function deleteChar(input) {
+            input.value = input.value.substring(0, input.value.length - 1)
+            }
+            var val = 0.0;
+            function percent(input) {
+            val = input.value;
+            input.value = input.value + "%";
+            }
+            function changeSign(input) {
+            if(input.value.substring(0, 1) == "-")
+            input.value = input.value.substring(1, input.value.length)
+            else
+            input.value = "-" + input.value
+            }
+            function compute(form) {
+            form.display.value = eval(form.display.value);
+            }
+            function square(form) {
+            form.display.value = eval(form.display.value) * eval(form.display.value)
+            }
+            function checkNum(str) {
+            for (var i = 0; i < str.length; i++) {
+            var ch = str.charAt(i);
+            if (ch < "0" || ch > "9") {
+            if (ch != "/" && ch != "*" && ch != "+" && ch != "-" && ch != "."
+            && ch != "(" && ch!= ")" && ch != "%") {
+            alert("invalid entry!")
+            return false
+            }
+            }
+            }
+            return true
+            }
+            </script>-->
+    
+      <!--  <form name="scientific_calculator"></p>
+            <p><h2>Scientific Calculator</h2></p>
+            <p><table cellspacing="0" cellpadding="1"><br />
+            <tr><br />
+            <td colspan="5" align="center"><input name="display" class="sc" value="0" size="44" maxlength="25"></td><br />
+            </tr><br />
+            <tr><br />
+            <td align="center"><input type="button" value="Clear" onclick="this.form.display.value = 0 "></td><br />
+            <td align="center" colspan="2"><input type="button" value="      Cancel     " onclick="deleteChar(this.form.display)"></td><br />
+            <td align="center" colspan="2"><input type="button" value="           Ok          " NAME="Enter" onclick="if (checkNum(this.form.display.value)) { compute(this.form) }"></td><br />
+            </tr><br />
+            <tr><br />
+            <td align="center"><input type="button" value=" exp " onclick="if (checkNum(this.form.display.value)) { exp(this.form) }"></td><br />
+            <td align="center"><input type="button" value="  7  " onclick="add_value(this.form.display, '7')"></td><br />
+            <td align="center"><input type="button" value="  8  " onclick="add_value(this.form.display, '8')"></td><br />
+            <td align="center"><input type="button" value="  9  " onclick="add_value(this.form.display, '9')"></td><br />
+            <td align="center"><input type="button" value="   /   " onclick="add_value(this.form.display, '/')"></td><br />
+            </tr><br />
+            <tr><br />
+            <td align="center"><input type="button" value="  ln   " onclick="if (checkNum(this.form.display.value)) { ln(this.form) }"></td><br />
+            <td align="center"><input type="button" value="  4  " onclick="add_value(this.form.display, '4')"></td><br />
+            <td align="center"><input type="button" value="  5  " onclick="add_value(this.form.display, '5')"></td><br />
+            <td align="center"><input type="button" value="  6  " onclick="add_value(this.form.display, '6')"></td><br />
+            <td align="center"><input type="button" value="   *   " onclick="add_value(this.form.display, '*')"></td><br />
+            </tr><br />
+            <tr><br />
+            <td align="center"><input type="button" value=" sqrt " onclick="if (checkNum(this.form.display.value)) { sqrt(this.form) }"></td><br />
+            <td align="center"><input type="button" value="  1  " onclick="add_value(this.form.display, '1')"></td><br />
+            <td align="center"><input type="button" value="  2  " onclick="add_value(this.form.display, '2')"></td><br />
+            <td align="center"><input type="button" value="  3  " onclick="add_value(this.form.display, '3')"></td><br />
+            <td align="center"><input type="button" value="   -   " onclick="add_value(this.form.display, '-')"></td><br />
+            </tr><br />
+            <tr><br />
+            <td align="center"><input type="button" value="  sq  " onclick="if (checkNum(this.form.display.value)) { square(this.form) }"></td><br />
+            <td align="center"><input type="button" value="  0  " onclick="add_value(this.form.display, '0')"></td><br />
+            <td align="center"><input type="button" value="   .  " onclick="add_value(this.form.display, '.')"></td><br />
+            <td align="center"><input type="button" value=" +/- " onclick="changeSign(this.form.display)"></td><br />
+            <td align="center"><input type="button" value="   +  " onclick="add_value(this.form.display, '+')"></td><br />
+            </tr><br />
+            <tr><br />
+            <td align="center"><input type="button" value="   (    " onclick="add_value(this.form.display, '(')"></td><br />
+            <td align="center"><input type="button" value="cos" onclick="if (checkNum(this.form.display.value)) { cos(this.form) }"></td><br />
+            <td align="center"><input type="button" value=" sin " onclick="if (checkNum(this.form.display.value)) { sin(this.form) }"></td><br />
+            <td align="center"><input type="button" value=" tan" onclick="if (checkNum(this.form.display.value)) { tan(this.form) }"></td><br />
+            <td align="center"><input type="button" value="   )   " onclick="add_value(this.form.display, ')')"></td><br />
+            </tr><br />
+            </table></p>
+            <p></form>-->
+
+   

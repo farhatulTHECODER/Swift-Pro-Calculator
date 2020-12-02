@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Age Calculator</title>
+ <meta charset="utf-8"/>
+ <meta name="description" content="This free age calculator computes age in terms of years, months, weeks, days, hours, minutes, and seconds, given a date of birth. Determine the time between today and your next birthday using the date calculator, or explore hundreds of other calculators addressing math." />
+ <meta name="keywords" content="age calculator , age calculator in days , calculate age in days , calculate
+ age in years , calculate age in months , calculate age , how old i am? , calculate your age
+ how i calculate my age? "/>
+ <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+ 
+ <!-- Latest compiled and minified CSS
+<link rel="stylesheet" href="css/bootstrap.min.css"> -->
+
+<!-- jQuery library 
+<script src="js/jquery.min.js"></script>-->
+
+<!-- Latest compiled JavaScript 
+<script src="js/bootstrap.min.js"></script>-->
+ <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+ <title></title>
+ <style>
+ 
+ </style>
+ <link rel="stylesheet" href="agecalc.css" type="text/css"/>
+
+ <!--JavaScript-->
+ <script>
+
+function refreshPage()
+{
+   location.reload();
+}
+
+ </script>
+
+</head>
+<body bgcolor="white">
+
+<a href="index.html"><img src="backImg.png" alt="" width="20%" height="20%"></a>   
+
+<img src="refreshButton.png" alt="" align="right" width="25%" height="25%" onclick="refreshPage()">
+
+<div class="container-fluid bbg">
+ <div class="main-container container">
+ 
+  <div class="head">
+  <h1 class="main-heading">Age Calculator</h1>
+  </div>
+  <div class="sub-container">
+  <div class="inner">
+  <div class="dateofbirth">
+  <span id="dob" >Date of Birth </span>
+  <input type="date" id="dateStart"/></br>
+  </div>
+  <div class="todaydate">
+  <span id="db">Today's Date</span>
+  <input type="date" id="dateEnd"/>
+  </div>
+  
+  <input type="button" id="btn" value="Calculate Age" />
+  </div>
+  </div>
+ <div class="container-fluid second">
+  <div class="row">
+    <div class="col-md">
+ <div class="contain" id="year">
+  <h1 class="heading1" id="showYears">0</h1>
+  <h3 class="heading2">Years</h3>
+ </div>
+ </div>
+    <div class="col-md">
+ <div class="contain" id="month">
+  <h1 class="heading1" id="showMonths">0</h1>
+  <h3 class="heading2">Months</h3>
+ </div>
+ </div>
+    <div class="col-md">
+ <div class="contain" id="days">
+  <h1 class="heading1" id="showDays">0</h1>
+  <h3 class="heading2">Days</h3>
+ </div>
+ </div>
+  </div>
+   
+</div>
+</div>
+ </div>
+
+</div>
+ 
+ <script>
+     var showYears=document.getElementById('showYears');
+  var showMonths=document.getElementById('showMonths');
+  var showDays=document.getElementById('showDays');
+  var button=document.getElementById('btn');
+  btn.onclick=function(){
+  var dateStart=document.getElementById('dateStart').value;
+  var dateEnd=document.getElementById('dateEnd').value;
+     var dateStarting=new Date(dateStart);
+  var dateEnding=new Date(dateEnd);
+  var diff=dateEnding-dateStarting;
+  var years=Math.floor(diff/(365.25*24*60*60*1000));
+  var remaining=Math.floor(diff%(365.25*24*60*60*1000));
+  var months=Math.floor(remaining/((365.25/12)*24*60*60*1000));
+  var remaining=Math.floor(remaining%((365.25/12)*24*60*60*1000));
+  var days=Math.floor(remaining/(24*60*60*1000));
+  showYears.innerHTML=years;
+  showMonths.innerHTML=months;
+  showDays.innerHTML=days;
+  
+  
+  
+  }
+ </script>
+</body>
+</html>

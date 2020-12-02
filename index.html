@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html><head><title>Calculator</title> <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css" /><link  href="style.scss" rel="stylesheet/scss" type="text/css"/><script src="app.js"></script> <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"></head><body>
+    
+
+<div id="mySidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <!--  <a href="#">About</a>
+    <a href="#">Services</a>-->
+   <!-- <a href="#">Clients</a>-->
+   <hr>
+   <hr>
+    <a href="agecalc.html">* Age Calculator</a>
+    <hr>
+    <hr>
+    <a href="SI.html">* Simple Interest Calculator</a>
+    <hr>
+    <hr>
+    <a href="emiCalc.html">* E.M.I Calculator</a>
+    <hr>
+    <hr>
+  <!--  <a href="license.html">License[V1.0]</a>
+    <hr>
+    <hr>-->
+    <h3 style="color: #fff; font-family: 'Courier New', Courier, monospace;"> ©Copyright 2020 | Swift Pro Calculator| All Rights Reserved</h3>
+ <!-- <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+   
+  
+
+
+    <font color="white">
+    <h6 id="h6">&nbsp&nbsp&nbsp Copyright © 2020  GO In </h6>
+  </font>-->  
+  </div>
+  <button class="openbtn" onclick="openNav()">&#9776;</button>
+  
+
+     <!--   <nav role="navigation">
+            <div id="menuToggle">
+              
+            
+              <input type="checkbox" />
+              
+              
+              <span></span>
+              <span></span>
+              <span></span>
+              
+              
+              <ul id="menu">
+                <a href="#"><li>Home</li></a>
+                <a href="#"><li>About</li></a>
+                <a href="#"><li>Info</li></a>
+              </ul>
+            </div>
+          </nav>-->
+
+     <!--<section>
+
+            <article>
+              <div class="menu">
+                <input id="menu--toggle"
+                       type="checkbox" />-->   
+                <!-- /#menu--toggle
+                <label class="menu--toggle__trigger"
+                       for="menu--toggle"></label> -->
+                <!-- /.menu--toggle__trigger 
+                <label class="menu--toggle__burger"
+                       for="menu--toggle"></label>-->
+                <!-- /.menu--toggle__burger 
+          
+          
+                <ul class="menu__body">
+                  <li class="menu__body-element">
+                    <a class="menu__body-link"
+                       href="https://codepen.io/WispProxy/pens/public"
+                       target="_blank">
+                      Works
+                    </a>-->
+                    <!-- /.menu__body-link
+                  </li> -->
+                  <!-- /.menu__body-element 
+          
+                  <li class="menu__body-element">
+                    <a class="menu__body-link"
+                       href="https://twitter.com/WispProxy"
+                       target="_blank">
+                      Twitter
+                    </a>-->
+                    <!-- /.menu__body-link 
+                  </li>
+                  </li>
+                 /.menu__body-element 
+          
+                  <li class="menu__body-element">
+                    <a class="menu__body-link"
+                       href="mailto:hi@VBelozyorov.com">
+                      Mail
+                    </a>-->
+                    <!-- /.menu__body-link
+                  </li> -->
+                  <!-- /.menu__body-element 
+                </ul>-->
+                <!-- /.menu__body
+              </div> -->
+              <!-- /.menu 
+            </article>-->
+          
+          
+            <article>
+              <div class="promotion">
+              </div>
+              <!-- /.promotion -->
+            </article>
+          
+          </section>
+
+    <!--    <button class="ham"></button>
+        <nav class="navbar">
+          <ul>
+            <li><a class="menuLink" href="#">Home</a></li>
+            <li><a class="menuLink" href="#">Profile</a></li>
+            <li><a class="menuLink" href="#">About</a></li>
+            <li><a class="menuLink" href="#">Contacts</a></li>
+          </ul>
+        </nav>
+
+        <div id="menu">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="menu-inner">
+                
+                <ul>
+                    <li>Menu Item</li>
+                    <li>Menu Item</li>
+                    <li>Menu Item</li>
+                    <li>Menu Item</li>
+                    <li>Menu Item</li>
+                    <li>Menu Item</li>
+                </ul>
+            </div>
+      
+      
+            
+            <svg version="1.1" id="blob"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path id="blob-path" d="M60,500H0V0h60c0,0,20,172,20,250S60,900,60,500z"/>
+            </svg>
+        </div>-->
+     <!--  <h3 style="color: cornflowerblue;" align="center" class="ico-text">Swift Pro Calculator</h3>
+
+        <img src="MainCalcIcon.png" align="center" width="75%" height="75%" id="Cicon" alt="">--> 
+
+    
+
+<!--Refresh Button / -->
+<img src="refreshButton.png" alt="" width="25%" height="25%" style="float: right;" onclick="reloadWholePage()" id="refreshPage">
+
+    	<div class="container">
+            <form name="form">
+            <div class="display">
+            <input type="text" placeholder="0" name="displayResult" id="zero"/>
+            </div>
+            <div class="buttons">
+          <div class="row">
+            <input type="button" name="b7" value="7" onClick="calcNumbers(b7.value)">
+          <input type="button" name="b8" value="8" onClick="calcNumbers(b8.value)">
+          <input type="button" name="b9" value="9" onClick="calcNumbers(b9.value)">
+          <input type="button" name="addb" value="+" onClick="calcNumbers(addb.value)">
+            </div>
+            
+            <div class="row">
+            <input type="button" name="b4" value="4" onClick="calcNumbers(b4.value)">
+          <input type="button" name="b5" value="5" onClick="calcNumbers(b5.value)">
+          <input type="button" name="b6" value="6" onClick="calcNumbers(b6.value)">
+          <input type="button" name="subb" value="-" onClick="calcNumbers(subb.value)">
+            </div>
+            
+            <div class="row">
+            <input type="button" name="b1" value="1" onClick="calcNumbers(b1.value)">
+          <input type="button" name="b2" value="2" onClick="calcNumbers(b2.value)">
+          <input type="button" name="b3" value="3" onClick="calcNumbers(b3.value)">
+          <input type="button" name="mulb" value="*" onClick="calcNumbers(mulb.value)">
+            </div>
+            
+            <div class="row">
+            <input type="button" name="b0" value="0" onClick="calcNumbers(b0.value)">
+          <input type="button" name="potb" value="." onClick="calcNumbers(potb.value)">
+          <input type="button" name="divb" value="/" onClick="calcNumbers(divb.value)">
+          <input type="button" class="red" value="=" onClick="displayResult.value=eval(displayResult.value)">
+            </div>
+            </div>
+            
+            </form>
+        </div>
+
+        <!-- Top Navigation Menu 
+<div class="topnav">-->
+   
+    <!-- Navigation links (hidden by default)
+    <div id="myLinks">
+    <a href="#about">About</a>
+  
+    </div> -->
+    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links 
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>-->
+
+</body></html>

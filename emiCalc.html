@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>E.M.I CALCUALTOR</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+font-family: 'Roboto',monospace;
+}
+.input{
+    border: none;
+    height: 20px;
+    width: 150px;
+    border-radius: 15px;
+}
+.button{
+    border: none;
+    border-radius: 20px;
+    width: 120px;
+}
+</style>
+
+<script language="javascript" type="text/JavaScript">
+    function refreshPage()
+    {
+        location.reload();
+    }
+    function clearval(docname) {
+    docname.txtLoanAmount.value="";
+    docname.txtInterestRate.value="";
+    docname.txtPeriod.value="";
+    docname.resultemi.value="";
+    docname.Selectopt.selectedIndex=0;
+    docname.txtLoanAmount.focus();
+    return false;
+    }
+    function checkval(docname){
+    
+    var i;
+    var getval=docname.value;
+    var count_deci=0;
+    var flag=0;
+    
+    
+    for(i=0;i<getval.length;i=i+1) {
+    if((getval.charAt(i) >= "0" && getval.charAt(i) <= "9") || (getval.charAt(i) == ".")) {
+    
+    if(getval.charAt(i) == ".") {
+    count_deci=count_deci+1;
+    
+    if(getval.charAt(i+1)=="") {
+    alert("Wrong entry");
+    docname.amt.value="";
+    docname.amt.focus();
+    flag=1;
+    break;
+    }
+    }
+    
+    if(count_deci>1) {
+    alert("Illegal Data");
+    docname.amt.value="";
+    docname.amt.focus();
+    flag=1;
+    break;
+    }
+    }
+    else {
+    alert("Invalid Entry");
+    docname.value="";
+    docname.focus();
+    flag=1;
+    break;
+    }
+    }
+    }
+    
+    
+    function CalculateValue(docname) {
+    subflag = true;
+    
+    if(subflag) {
+    
+    var LoanA,IntR,TimeP;
+    var TypeOfLoan;
+    var Multiplier,numerator,denominator;
+    var EMI;
+    
+    LoanA=docname.txtLoanAmount.value;
+    IntR=docname.txtInterestRate.value;
+    TimeP=docname.txtPeriod.value;
+    TypeOfLoan=docname.Selectopt.value;
+    
+    if(TypeOfLoan=="Monthly")
+    Multiplier=12;
+    else
+    Multiplier=1;
+    
+    numerator=LoanA*Math.pow((1+IntR/(Multiplier*100)),TimeP*Multiplier);
+    
+    denominator=100*Multiplier*((Math.pow((1+IntR/(Multiplier*100)),TimeP*Multiplier)-1)/IntR);
+    
+    if(TypeOfLoan=="Monthly")
+    EMI=12*(numerator/(denominator*12));
+    else
+    EMI=numerator/denominator;
+    var emi;
+    emi=Math.round(EMI);
+    docname.resultemi.value=emi;
+    
+    return false;
+    }
+    }
+    </script>
+    
+
+</head>
+
+<body bgcolor="lightgreen">
+
+    <a href="index.html"><img src="backImg.png" alt="" width="25%" height="30%"></a>
+
+    <img src="refreshButton.png" align="right" alt="" width="20%" height="20%" onclick="refreshPage()">
+
+    
+
+<table>
+<tr>
+<td valign="top" class="maintxt"><strong class="subheading"><br /></strong><br />
+
+
+<form name="frmEMI" method="post">
+<table width="90%" border="0" align="left" cellpadding="3" cellspacing="0" class="bdrAll">
+<tr>
+<td class="headVr ar" width="24%">Loan Amount (Rs.)</td>
+<td width="76%" align="left"><input type="text" class="input" name="txtLoanAmount" onblur="checkval(document.frmEMI.txtLoanAmount)" size="17"></td>
+</tr>
+
+<tr>
+    
+<td class="headVr ar" width="24%">Interest Rate (%)</td>
+<td align="left">
+<input type="text" class="input" name="txtInterestRate" onblur="checkval(document.frmEMI.txtInterestRate)" size="17"></td>
+</tr>
+<tr>
+<td class="headVr ar" width="24%">Loan Period (Yrs)</td>
+<td align="left"><input type="text" class="input" name="txtPeriod" onblur="checkval(document.frmEMI.txtPeriod)" size="17"></td>
+</tr>
+<tr>
+<td class="headVr ar" width="24%">Equated Monthly Installment (<b>EMI</b>)</td>
+<td align="left" valign="TOP" class="p2px5px"><input type="text" class="input" name="resultemi" size="10" readonly style="BACKGROUND-COLOR:'#ffffCC'" /></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td align="left" valign="TOP">
+<input type="hidden" name="Selectopt" value="Monthly">
+<a href="" onclick="return CalculateValue(document.frmEMI);"><input class="button" type="button" name="Submit" value="Calculate" alt="Calculate"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" onclick="return(clearval(document.frmEMI))"><input type="button" name="Submit" value="Clear" alt="Clear All" class="button"></a></td>
+</tr>
+</table>
+</form> </td>
+</tr>
+</table>
+</body>
+</html>
